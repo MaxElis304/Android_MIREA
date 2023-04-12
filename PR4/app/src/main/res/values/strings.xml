@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PR4</string>
+    <string name="Button">This is a button</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="listview">ListView</string>
+    <string name="recyclerview">RecyclerView</string>
+    <string name="placeholder">PLACEHOLDER</string>
+</resources>

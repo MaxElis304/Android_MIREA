@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PR3</string>
+    <string name="this_is_gonna_be_something_huge">This is gonna be something HUGE!!</string>
+    <string name="Вход">Вход</string>
+    <string name="image1">Image1</string>
+    <string name="enter_tel_num">Введите ваш номер телефона</string>
+    <string name="title_activity_second">second_activity</string>
+</resources>

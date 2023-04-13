@@ -57,7 +57,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("text", text.getText().toString());
-                navController.navigate(R.id.action_mainFragment_to_secondFragment, bundle);
+                navController.navigate(R.id.goto_second_frag, bundle);
             }
         });
         toThird.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("text", text.getText().toString());
-                navController.navigate(R.id.action_mainFragment_to_thirdFragment, bundle);
+                navController.navigate(R.id.goto_third_frag, bundle);
             }
         });
     }

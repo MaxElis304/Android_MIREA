@@ -12,10 +12,10 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_secondFragment"
+            android:id="@+id/goto_second_frag"
             app:destination="@id/secondFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_thirdFragment"
+            android:id="@+id/goto_third_frag"
             app:destination="@id/thirdFragment" />
     </fragment>
     <fragment
@@ -25,7 +25,7 @@
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
         <action
-            android:id="@+id/action_secondFragment_to_thirdFragment"
+            android:id="@+id/goto_third_frag"
             app:destination="@id/thirdFragment" />
     </fragment>
     <fragment
@@ -35,7 +35,7 @@
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" >
         <action
-            android:id="@+id/action_thirdFragment_to_mainFragment"
+            android:id="@+id/goto_main_frag"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

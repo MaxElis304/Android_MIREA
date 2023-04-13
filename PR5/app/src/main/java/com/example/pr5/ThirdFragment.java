@@ -46,7 +46,7 @@ public class ThirdFragment extends Fragment {
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("text", text.getText().toString());
-                navController.navigate(R.id.action_thirdFragment_to_mainFragment, bundle);
+                navController.navigate(R.id.goto_main_frag, bundle);
             }
         });
     }

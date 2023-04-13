@@ -53,7 +53,7 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("text", text.getText().toString());
-                navController.navigate(R.id.action_secondFragment_to_thirdFragment, bundle);
+                navController.navigate(R.id.goto_third_frag, bundle);
             }
         });
     }

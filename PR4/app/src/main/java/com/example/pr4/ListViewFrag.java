@@ -18,12 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListViewFragment extends Fragment {
+public class ListViewFrag extends Fragment {
 
 
     private static final String TAG = "listfragment";
 
-    public ListViewFragment() {
+    public ListViewFrag() {
 
     }
 
@@ -35,7 +35,7 @@ public class ListViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list_view, container, false);
+        View view = inflater.inflate(R.layout.frag_list_view, container, false);
         List<Item> items = new ArrayList<>();
         for (int i = 0; i < 200; i++){
             items.add(new Item(R.drawable.ic_launcher_background, "Элемент " + (i + 1)));

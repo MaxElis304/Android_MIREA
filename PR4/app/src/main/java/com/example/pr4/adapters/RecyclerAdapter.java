@@ -17,7 +17,7 @@ import com.example.pr4.Getters.Item;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    private final static String TAG = "recycler adapter";
+    private final static String TAG = "recycler adapter frag";
     private final List<Item> items;
 
     public RecyclerAdapter(List<Item> items) {

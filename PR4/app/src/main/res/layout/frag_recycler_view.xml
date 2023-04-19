@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.PR4.FullscreenContainer"
-    tools:context=".ListViewFragment"
+    tools:context=".RecyclerViewFrag"
     android:padding="16dp">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -28,14 +28,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/itemsList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="8dp"
-            android:divider="#00FFFFFF">
+            android:layout_height="match_parent">
 
-        </ListView>
+        </androidx.recyclerview.widget.RecyclerView>
     </FrameLayout>
 
 </FrameLayout>

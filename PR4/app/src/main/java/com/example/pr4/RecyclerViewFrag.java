@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecyclerViewFragment extends Fragment {
+public class RecyclerViewFrag extends Fragment {
 
-    public RecyclerViewFragment() {
+    public RecyclerViewFrag() {
 
     }
 
@@ -36,11 +36,11 @@ public class RecyclerViewFragment extends Fragment {
         for (int i = 0; i < 200; i++){
             items.add(new Item(R.drawable.ic_launcher_background, "Элемент " + (i + 1)));
         }
-        View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+        View view = inflater.inflate(R.layout.frag_recycler_view, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.itemsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         int space = getResources().getDimensionPixelSize(R.dimen.spacing);
-        recyclerView.addItemDecoration(new SpaceItemDecoration(space));
+        recyclerView.addItemDecoration(new Extra(space));
         RecyclerAdapter adapter = new RecyclerAdapter(items);
         recyclerView.setAdapter(adapter);
         return view;

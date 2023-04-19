@@ -5,10 +5,10 @@ import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
+public class Extra extends RecyclerView.ItemDecoration {
     private int space;
 
-    public SpaceItemDecoration(int space) {
+    public Extra(int space) {
         this.space = space;
     }
 

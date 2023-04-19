@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 public class MainFragment extends Fragment {
@@ -32,7 +31,7 @@ public class MainFragment extends Fragment {
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment listfrag = new ListViewFragment();
+                Fragment listfrag = new ListViewFrag();
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_view, listfrag)
                         .addToBackStack(null)
@@ -43,7 +42,7 @@ public class MainFragment extends Fragment {
         recycBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment recfrag = new RecyclerViewFragment();
+                Fragment recfrag = new RecyclerViewFrag();
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container_view, recfrag)
                         .addToBackStack(null)

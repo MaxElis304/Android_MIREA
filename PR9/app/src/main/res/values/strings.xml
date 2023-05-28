@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PR9</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_button_text">Send</string>
+    <string name="send_text_placeholder">Text to send</string>
+    <string name="received_text_label">Received text:</string>
+    <string name="received_text_placeholder">Text placeholder</string>
+</resources>

@@ -3,11 +3,6 @@ package com.example.pr8;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import org.jetbrains.annotations.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.pr8.Database.TextDao;
 import com.example.pr8.Database.TextDataBase;

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -20,12 +21,18 @@ public class MyService extends Service {
 
     private WindowManager windowManager;
     private View overlayView;
+    private String inputText;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        showOverlay();
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        super.onStartCommand(intent, flags, startId);
+
+        if (intent != null) {
+            inputText = intent.getStringExtra("inputText");
+            showOverlay();
+        }
+
+        return START_STICKY;
     }
 
     private void showOverlay() {
@@ -39,13 +46,15 @@ public class MyService extends Service {
             return;
         }
 
+        if (overlayView != null && overlayView.isAttachedToWindow()) {
+            return; // Skip creating a new overlay
+        }
+
         // Inflate the overlay layout
         overlayView = LayoutInflater.from(this).inflate(R.layout.overlay_layout, null);
-
         // Set the text of the overlay TextView
-        TextView overlayText = overlayView.findViewById(R.id.overlayTextView);
-        overlayText.setText("Здесь выводится оверлейное уведомление");
-
+        TextView overlayTextView = overlayView.findViewById(R.id.overlayTextView);
+        overlayTextView.setText(inputText);
         // Close button
         Button closeButton = overlayView.findViewById(R.id.overlayButton);
         closeButton.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +73,6 @@ public class MyService extends Service {
                 stopSelf(); // Stop the service
             }
         });
-
-
         // Set the layout parameters for the overlay view
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -74,11 +81,9 @@ public class MyService extends Service {
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT
         );
-
         // Add the overlay view to the window manager
-        WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
         windowManager.addView(overlayView, params);
-
     }
 
     @Override
@@ -94,6 +99,7 @@ public class MyService extends Service {
         return null;
     }
 }
+
 
 
 

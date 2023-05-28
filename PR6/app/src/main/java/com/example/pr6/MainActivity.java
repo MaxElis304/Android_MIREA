@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private NotificationManager notificationManager;
     private Button notificationButton;
+    private EditText EditText;
     private MyService MyService;
 
     @Override
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         notificationButton = findViewById(R.id.notificationButton);
+        EditText = findViewById(R.id.editText);
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         MyService = new MyService();
 
@@ -52,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(intent, OVERLAY_PERMISSION_REQUEST_CODE);
                     } else {
                         startOverlayService();
-                        showNotification();
+                        showNotification(EditText.getText().toString());
                     }
                 } else {
                     startOverlayService();
-                    showNotification();
+                    showNotification(EditText.getText().toString());
                 }
             }
         });
@@ -64,12 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void startOverlayService() {
         Intent overlayIntent = new Intent(getApplicationContext(), MyService.class);
+        overlayIntent.putExtra("inputText", EditText.getText().toString());
         overlayIntent.putExtra("callingPackage", getPackageName());
         startService(overlayIntent);
 
     }
 
-    private void showNotification() {
+    private void showNotification(String inputText) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         Intent appIntent = getPackageManager().getLaunchIntentForPackage("com.example.pr6");
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
@@ -80,8 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 .setAutoCancel(false)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("Уведомление")
-                .setContentText("Тут уведомление")
+                .setContentTitle(inputText)
+                .setContentText("Just some notification, BRUH")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(pendingIntent);
 
@@ -104,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (Settings.canDrawOverlays(MainActivity.this)) {
                     startOverlayService();
-                    showNotification();
+                    showNotification(EditText.getText().toString());
                 } else {
                     Toast.makeText(MainActivity.this, "Разрешение на оверлей не предоставлено", Toast.LENGTH_SHORT).show();
                 }
